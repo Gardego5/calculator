@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" xml:lang="en" height="16px" width="16px">
+    <title>Drop</title>
+
+    <style type="text/css">
+        .filled {
+            fill: black;
+            stroke-width: 0;
+        }
+
+        .line {
+            fill: none;
+            stroke-width: 1.5;
+            stroke: black;
+            stroke-linecap: butt;
+        }
+    </style>
+
+    <!-- Drawing -->
+    <circle cx="11" cy="1.5" r="1.5" class="filled" />
+    <circle cx="11" cy="8" r="1.5" class="filled" />
+    <circle cx="11" cy="14.5" r="1.5" class="filled" />
+
+    <path d="M 5,0 l 0,13" class="line" />
+    <path d="M 5,16 l 2,-3 l -4,0 z" class="filled" />
+</svg>
