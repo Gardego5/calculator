@@ -37,6 +37,20 @@ export default class Calculator {
         this.render();
     }
 
+    deleteDigit() {
+        this.shouldPushMainField = false;
+        this.shouldClearMainField = false;
+
+        let afterRemovingDigit = this.displayedValue.slice(0, -1);
+
+        if (validNumber(afterRemovingDigit)) {
+            this.displayedValue = afterRemovingDigit;
+            this.currentValue = Number(afterRemovingDigit);
+        }
+
+        this.render()
+    }
+
     setNumber(number) {
         if (this.shouldPushMainField) {
             this.pushNumberToStack(false);
@@ -49,7 +63,7 @@ export default class Calculator {
         }
 
         this.currentValue = number;
-        this.displayedValue = this.currentValue;
+        this.displayedValue = String(this.currentValue);
 
         this.render();
     }
@@ -74,7 +88,7 @@ export default class Calculator {
     drop() {
         if (this.stack.length) { // If there's anything on the stack, drop the stack down
             this.currentValue = this.stack.shift()
-            this.displayedValue = this.currentValue;
+            this.displayedValue = String(this.currentValue);
             this.shouldPushMainField = true;
         } else {
             this.clear();
@@ -87,7 +101,7 @@ export default class Calculator {
         if (this.stack.length) {
             const oldValue = this.currentValue;
             this.currentValue = this.stack.shift();
-            this.displayedValue = this.currentValue;
+            this.displayedValue = String(this.currentValue);
             this.stack.push(oldValue);
         }
 
@@ -98,7 +112,7 @@ export default class Calculator {
         if (this.stack.length) {
             const oldValue = this.currentValue;
             this.currentValue = this.stack.shift();
-            this.displayedValue = this.currentValue;
+            this.displayedValue = String(this.currentValue);
             this.stack.unshift(oldValue);
         }
 
@@ -155,7 +169,7 @@ export default class Calculator {
 
     sqrt() {
         this.currentValue = Math.sqrt(this.currentValue);
-        this.displayedValue = this.currentValue;
+        this.displayedValue = String(this.currentValue);
         this.shouldPushMainField = true;
 
         this.render();
@@ -163,7 +177,7 @@ export default class Calculator {
 
     square() {
         this.currentValue = Math.pow(this.currentValue, 2);
-        this.displayedValue = this.currentValue;
+        this.displayedValue = String(this.currentValue);
         this.shouldPushMainField = true;
 
         this.render();
@@ -189,21 +203,21 @@ export default class Calculator {
 
     sin() {
         this.currentValue = Math.sin(this.currentValue);
-        this.displayedValue = this.currentValue;
+        this.displayedValue = String(this.currentValue);
 
         this.render();
     }
 
     cos() {
         this.currentValue = Math.cos(this.currentValue);
-        this.displayedValue = this.currentValue;
+        this.displayedValue = String(this.currentValue);
 
         this.render();
     }
 
     tan() {
         this.currentValue = Math.tan(this.currentValue);
-        this.displayedValue = this.currentValue;
+        this.displayedValue = String(this.currentValue);
 
         this.render();
     }

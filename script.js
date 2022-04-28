@@ -53,9 +53,7 @@ document.getElementById("op-home-page").addEventListener("click", () => {
 document.getElementById("op-confirm-home-page").addEventListener("click", () => window.location.href = "https://www.gjdcode.com");
 
 // Keyboard EventListener
-document.addEventListener("keypress", (event) => {
-    console.log(event.key, event.code);
-
+document.addEventListener("keydown", (event) => {
     switch (event.key) {
         case "0":
         case "1":
@@ -100,5 +98,8 @@ document.addEventListener("keypress", (event) => {
         case "C":
             calculator.clearAll();
             break;
+        case "Backspace":
+            calculator.deleteDigit();
+            break
     }
 });
