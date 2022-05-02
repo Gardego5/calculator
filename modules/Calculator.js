@@ -255,19 +255,19 @@ export default class Calculator {
     render() {
         // Clear all stackFields.
         for (let field of this.stackFields) {
-            field.innerHTML = "";
+            field.textContent = "";
         }
 
         // Display stack values in stackFields.
         for (let i in this.stack.slice(0, 3)) {
-            this.stackFields[i].innerHTML = valueToDisplayedValue(this.currencyMode, this.stack[i]);
+            this.stackFields[i].textContent = valueToDisplayedValue(this.currencyMode, this.stack[i]);
         }
 
         // Display the displayedValue in mainField.
-        this.mainField.innerHTML = valueToDisplayedValue(this.currencyMode, this.displayedValue);
+        this.mainField.textContent = valueToDisplayedValue(this.currencyMode, this.displayedValue);
 
         // Show stack size in counterField.
-        this.counterField.innerHTML = this.stack.length;
+        this.counterField.textContent = this.stack.length;
 
         // Only show Clear All button if appropriate.
         if (this.displayedValue === "" && this.stack.length) {
